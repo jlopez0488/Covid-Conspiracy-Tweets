@@ -54,6 +54,9 @@ elif choice == "EDA":
     ##EDA
     st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
     wu = pd.read_json("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/data/BIG-text-query-tweets.json", lines=True)
+    st.write("Let's have a look at the whole thing.")
+    wu.head(5)
+    st.write("Too much! We need just the content for now.")
     words=[]
     def getwords():
         i = 0
