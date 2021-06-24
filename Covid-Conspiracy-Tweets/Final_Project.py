@@ -9,7 +9,7 @@ import pandas as pd
 # import numpy as np
 # import matplotlib.pyplot as plt
 # import seaborn as sns
-# from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud, STOPWORDS
 # import nltk
 # import nltk.data
 # import re
@@ -92,7 +92,9 @@ elif choice == "EDA":
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
-        st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/wordcloud.png")
+        plt.figure(figsize = (20,20)) 
+        wc = WordCloud(max_words = 200 , width = 1600 , height = 800, background_color="white").generate(text)
+        plt.imshow(wc, interpolation = 'bilinear')
         
     st.write("Tweets are generally pretty short, but let's get a closer look at where the lengths of these tweets are centered around.")
     hist = st.button("show me a hist!")
