@@ -45,6 +45,7 @@ if choice == 'Home':
     
     #second page
 elif choice == "EDA":
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Factfulness%20over%20time.png")
     st.header("Data Collection & EDA")
     st.title("Getting and cleaning the Tweets")
     
@@ -93,6 +94,7 @@ elif choice == "EDA":
     wc = st.button("Show me a WordCloud")
     if wc:
         st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/wordcloud.png")
+        
     st.write("Tweets are generally pretty short, but let's get a closer look at where the lengths of these tweets are centered around.")
     hist = st.button("show me a hist!")
     if hist:
