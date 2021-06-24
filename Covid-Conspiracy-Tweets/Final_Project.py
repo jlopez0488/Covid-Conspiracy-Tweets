@@ -9,7 +9,7 @@ import pandas as pd
 # import numpy as np
 # import matplotlib.pyplot as plt
 # import seaborn as sns
-from wordcloud import WordCloud, STOPWORDS
+#from wordcloud import WordCloud, STOPWORDS
 # import nltk
 # import nltk.data
 # import re
@@ -48,9 +48,7 @@ elif choice == "EDA":
     st.header("Data Collection & EDA")
     st.title("Getting and cleaning the Tweets")
     
-    st.write("My data collection tool was Python Twitter scraping library called snscrape. The raw data that this library returns is a json file with a wealth of data attached to each tweet. Check out a few for yourself.")
-   
-    run = st.button("Wuhan Lab Leak!")
+    st.write("Let's get a look at the Tweets.")
 
     # if run:
     #     df = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))
@@ -89,17 +87,18 @@ elif choice == "EDA":
     words = pd.DataFrame(words)
     words = words.rename(columns={0:"original"})
     st.write(words.head(5), use_column_width='always')
+    
+    #####
+    
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
-        plt.figure(figsize = (20,20)) 
-        wc = WordCloud(max_words = 200 , width = 1600 , height = 800, background_color="white").generate(text)
-        plt.imshow(wc, interpolation = 'bilinear')
+        st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/wordcloud.png")
         
     st.write("Tweets are generally pretty short, but let's get a closer look at where the lengths of these tweets are centered around.")
     hist = st.button("show me a hist!")
     if hist:
-        st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/hist.png")
+        st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/hist.png")
         
     st.write("Of the data set, a number of users have made their location publically visible. The location of the tweets has been mapped out below.")
 
