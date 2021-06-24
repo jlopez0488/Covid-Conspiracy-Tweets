@@ -92,15 +92,15 @@ elif choice == "EDA":
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
-        st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/wordcloud.png")
+        st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/wordcloud.png")
     st.write("Tweets are generally pretty short, but let's get a closer look at where the lengths of these tweets are centered around.")
     hist = st.button("show me a hist!")
     if hist:
-        st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/hist.png")
+        st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/hist.png")
         
     st.write("Of the data set, a number of users have made their location publically visible. The location of the tweets has been mapped out below.")
 
-    data = pd.read_csv("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/example_file.csv")
+    data = pd.read_csv("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/data/example_file.csv")
     df = pd.DataFrame(data)
 
     st.markdown("**The number of locations is:**")
