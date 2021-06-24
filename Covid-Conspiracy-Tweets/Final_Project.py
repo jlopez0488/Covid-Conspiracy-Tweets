@@ -77,18 +77,18 @@ elif choice == "EDA":
     ##EDA
     st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
     wu = pd.read_json("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/data/BIG-text-query-tweets.json", lines=True)
-    words=[]
-    def getwords():
-        i = 0
-        for i in range(len(wu)):
-            x = wu.iloc[i]['content']
-            words.append(x)
-            i = i + 1
-        return words
-    words = getwords()
-    words = pd.DataFrame(words)
-    words = words.rename(columns={0:"original"})
-    st.write(words.head(5), use_column_width='always')
+#     words=[]
+#     def getwords():
+#         i = 0
+#         for i in range(len(wu)):
+#             x = wu.iloc[i]['content']
+#             words.append(x)
+#             i = i + 1
+#         return words
+#     words = getwords()
+#     words = pd.DataFrame(words)
+#     words = words.rename(columns={0:"original"})
+#     st.write(words.head(5), use_column_width='always')
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
