@@ -42,8 +42,6 @@ if choice == 'Home':
     st.markdown("- The Wuhan Lab Leak seems like a persistent feature of the COVID conversation, but in fact the Twittersphere has been very quiet on this idea until very, very recently.")
     st.markdown("- A topic model analysis of the tweets shows a far greater interest and volume of activity in terms associated with agreement on the theory rather than those that suggest scrutiny or criticism of it.")
     st.markdown("- The Twitter search term “Wuhan lab leak” has users with the most activity in the U.S., the U.K. and adjacent areas, and India.")
-    html_string = "<h3><a href='https://twitter.com/intent/tweet?button_hashtag=Wuhan&ref_src=twsrc%5Etfw' class='twitter-hashtag-button' data-show-count='false'>Tweet #Wuhan</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script></h3>"
-    st.markdown(html_string, unsafe_allow_html=True)
     
     #second page
 elif choice == "EDA":
@@ -77,20 +75,20 @@ elif choice == "EDA":
     
     st.markdown("---")
     ##EDA
-    # st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
-    # wu = pd.read_json("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/BIG-text-query-tweets.json", lines=True)
-    # words=[]
-    # def getwords():
-    #     i = 0
-    #     for i in range(len(wu)):
-    #         x = wu.iloc[i]['content']
-    #         words.append(x)
-    #         i = i + 1
-    #     return words
-    # words = getwords()
-    # words = pd.DataFrame(words)
-    # words = words.rename(columns={0:"original"})
-    # st.write(words.head(5), use_column_width='always')
+    st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
+    wu = pd.read_json("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/data/BIG-text-query-tweets.json", lines=True)
+    words=[]
+    def getwords():
+        i = 0
+        for i in range(len(wu)):
+            x = wu.iloc[i]['content']
+            words.append(x)
+            i = i + 1
+        return words
+    words = getwords()
+    words = pd.DataFrame(words)
+    words = words.rename(columns={0:"original"})
+    st.write(words.head(5), use_column_width='always')
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
