@@ -31,7 +31,7 @@ choice = st.sidebar.selectbox('Lets try', menu)
 
 # Create the Home page
 if choice == 'Home':
-    st.image("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/media/main1.webp")
+    st.video("https://youtu.be/MwDCyNpe-cc")
     st.title("Wuhan Lab Leak: From Conspiracy Theory to Federal Investigation — But How?")
     st.header("Using data analysis to understand how a fringe idea became the subject of a federal inquiry and the focus of newsrooms across the world")
     st.markdown("Since the start of the pandemic, a persistent question has dogged almost all efforts to understand and respond to the pandemic: is COVID-19 a naturally occurring disease or is the disease a human invention? \n Voices at a range of levels and expertise have weighed in on the question—including famously Donald Trump himself who would openly used the term China virus in tweets on the subject.")
