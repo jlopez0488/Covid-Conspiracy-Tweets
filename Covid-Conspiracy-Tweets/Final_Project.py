@@ -42,7 +42,7 @@ if choice == 'Home':
     st.markdown("- The Wuhan Lab Leak seems like a persistent feature of the COVID conversation, but in fact the Twittersphere has been very quiet on this idea until very, very recently.")
     st.markdown("- A topic model analysis of the tweets shows a far greater interest and volume of activity in terms associated with agreement on the theory rather than those that suggest scrutiny or criticism of it.")
     st.markdown("- The Twitter search term “Wuhan lab leak” has users with the most activity in the U.S., the U.K. and adjacent areas, and India.")
-    html_string = "<h3><a href='https://twitter.com/intent/tweet?button_hashtag=Wuhan&ref_src=twsrc%5Etfw" class="twitter-hashtag-button' data-show-count='false'>Tweet #Wuhan</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script></h3>"
+    html_string = "<h3><a href='https://twitter.com/intent/tweet?button_hashtag=Wuhan&ref_src=twsrc%5Etfw' class='twitter-hashtag-button' data-show-count='false'>Tweet #Wuhan</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script></h3>"
     st.markdown(html_string, unsafe_allow_html=True)
     
     #second page
