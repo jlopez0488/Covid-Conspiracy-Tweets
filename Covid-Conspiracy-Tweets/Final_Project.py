@@ -45,7 +45,6 @@ if choice == 'Home':
     
     #second page
 elif choice == "EDA":
-    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Factfulness%20over%20time.png")
     st.header("Data Collection & EDA")
     st.title("Getting and cleaning the Tweets")
     
@@ -102,7 +101,7 @@ elif choice == "EDA":
         
     st.write("Of the data set, a number of users have made their location publically visible. The location of the tweets has been mapped out below.")
 
-    data = pd.read_csv("https://github.com/jlopez0488/Covid-Conspiracy-Tweets/blob/master/data/example_file.csv")
+    data = pd.read_csv("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/data/example_file.csv")
     df = pd.DataFrame(data)
 
     st.markdown("**The number of locations is:**")
@@ -122,7 +121,8 @@ elif choice == "Model Prediction":
     st.write("You can see from the chart below that factfulness is pretty evenly distributed except for in May where unsure and above Tweets are concentrated.")
     
     st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/Tweets over Time.png")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/Factfulness over time.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Factfulness%20over%20time.png")
+
     st.write("It would be hard to truly evaluate the effectiveness of this model without double checking each one of the factfulness judgements made by the model, but a quick look at a sample of the value outputs is promising in my view.")
     st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/True tweets.png")
     st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/False tweets.png")
