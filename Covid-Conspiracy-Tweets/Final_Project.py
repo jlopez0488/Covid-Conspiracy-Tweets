@@ -49,27 +49,6 @@ elif choice == "EDA":
     st.title("Getting and cleaning the Tweets")
     
     st.write("Let's get a look at the Tweets.")
-
-    # if run:
-    #     df = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))
-
-    #     st.write(df)
-
-    # st.write("What columns are in there?")
-
-    # run1 = st.button("df.columns")
-    # if run1:
-        
-    #     st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10)).columns)
-
-    # st.write("For me, the most important and illustrative piece of what's here are the times, the tweet content and the location.")
-
-    # run2 = st.button("Get the right columns")
-
-    # if run2:
-
-    #     st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))[['content','date']]) 
-    
     
     st.markdown("---")
     ##EDA
@@ -115,32 +94,34 @@ elif choice == "Model Prediction":
     st.title("Model architecture")
     st.write("My idea is thus: let's build a fake news detection model to see if any trends emerge. Do the tweets change in factfulness over time? Is there a cluster of true seeming tweets at any point?")
     st.write("We're going to use a bidirectional LSTM model to try to assign a factfulness value to these tweets. Let's look at the model architecture first.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/Model.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Model.png")
     st.write("Let's take a glance at the training set that is used to train this dataset.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/Real and Fake news.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Real%20and%20Fake%20news.png")
+    
     st.markdown("---")
+    
     st.write("You can see from the chart below that factfulness is pretty evenly distributed except for in May where unsure and above Tweets are concentrated.")
     
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/Tweets over Time.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Tweets%20over%20Time.png")
     st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Factfulness%20over%20time.png")
 
     st.write("It would be hard to truly evaluate the effectiveness of this model without double checking each one of the factfulness judgements made by the model, but a quick look at a sample of the value outputs is promising in my view.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/True tweets.png")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/False tweets.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/True%20tweets.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/False%20tweets.png")
     st.markdown("---")
     st.write("To get a better sense of how this data set changes in May, I pulled just that month's data from the dataset. What you'll see here is that May is way overrepresented in the dataset, especially the later part of the month.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/May hist.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/May%20hist.png")
     st.write("Activity on this hashtag is concentrated far at the back. As far as our model can understand, the factfulness of this subject occurs somewhere around the final week of May 2021.")
     st.markdown("---")
     st.write("To complement my understanding of the data, I decided to perform a Latent Dirchlect Analysis to the tweets.")
     st.write("Briefly, this is a kind of textual analysis that tries to understand how a series of texts are related but calculating word distributions and assessing a likelihood that a given word would appear in a document. The calculation the model makes are used to generate topics that emerge from a broad analysis of the documents, so this type of analysis is called Topic Modelling.")
     st.header("LDA topics across the whole dataset")
     st.write("Topic analysis across the top three largest subjects shows a huge amount of interest in having this theory confirmed or advancing it. Key words here are: scientist, virus, bat, conspiracy.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/LDAa1.png")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/LDAa2.png")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/LDAa3.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa1.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa2.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa3.png")
     st.write("The 10th largest topic shows words that seem to indicate skepticism toward the idea. Key words here are: circustantial, evidence and checker.")
-    st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/LDAa4.png")
+    st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa4.png")
 elif choice == "Future Work":
     st.header("How Can This Be Improved?")
     st.markdown("-Further analysis of the late March activity.")
