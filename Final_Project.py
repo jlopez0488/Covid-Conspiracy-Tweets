@@ -2,7 +2,7 @@ import streamlit as st
 
 import pandas as pd
 import numpy as np
-import snscrape.modules.twitter as sntwitter
+# import snscrape.modules.twitter as sntwitter
 import itertools
 # import tensorflow as tf
 # import pandas as pd
@@ -33,7 +33,7 @@ choice = st.sidebar.selectbox('What should we do?', menu)
 if choice == 'Home':
     st.image("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/media/main1.webp")
     st.title("Wuhan Lab Leak: From Conspiracy Theory to Federal Investigation — But How?")
-    st.header("Using data analysis to understand how a fringe idea became the subject of a federal inquiry and the focuse of newsrooms across the world")
+    st.header("Using data analysis to understand how a fringe idea became the subject of a federal inquiry and the focus of newsrooms across the world")
     st.markdown("Since the start of the pandemic, a persistent question has dogged almost all efforts to understand and respond to the pandemic: is COVID-19 a naturally occurring disease or is the disease a human invention? \n Voices at a range of levels and expertise have weighed in on the question—including famously Donald Trump himself who would openly used the term China virus in tweets on the subject.")
     st.write("Indeed, it is Twitter where the question has been taken more seriously than anywhere else. A cadre of self appointed, amateur medical investigators have taken it upon themselves investigate the origins of the pandemic, specifically the theory that COVID-19 and the existing narrative around it exists as cover to a more sinister truth: the Chinese were working on a bioweapon that escaped the lab and appears in the world today at the coronavirus.")
     st.write("The subject appears to have come full circle with the newest occupant of the White House. After a rising chorus of concerned medical professionals and organizations have expressed keen interest in applying serious investigation in the Wuhan Lab Leak theory and legitimate news institutions including the New York Times, the BBC and other have begun to cover the question with earnest, U.S. President Joe Biden has called for a formal government investigation in to the question seemingly formalizing this idea’s move from conspiracy theory to legitimate question worth institutional study.")
@@ -52,43 +52,43 @@ elif choice == "EDA":
    
     run = st.button("Wuhan Lab Leak!")
 
-    if run:
-        df = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))
+    # if run:
+    #     df = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))
 
-        st.write(df)
+    #     st.write(df)
 
-    st.write("What columns are in there?")
+    # st.write("What columns are in there?")
 
-    run1 = st.button("df.columns")
-    if run1:
+    # run1 = st.button("df.columns")
+    # if run1:
         
-        st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10)).columns)
+    #     st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10)).columns)
 
-    st.write("For me, the most important and illustrative piece of what's here are the times, the tweet content and the location.")
+    # st.write("For me, the most important and illustrative piece of what's here are the times, the tweet content and the location.")
 
-    run2 = st.button("Get the right columns")
+    # run2 = st.button("Get the right columns")
 
-    if run2:
+    # if run2:
 
-        st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))[['content','date']]) 
+    #     st.write(pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"Wuhan Lab Leak"').get_items(), 10))[['content','date']]) 
     
     
     st.markdown("---")
     ##EDA
-    st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
-    wu = pd.read_json("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/BIG-text-query-tweets.json", lines=True)
-    words=[]
-    def getwords():
-        i = 0
-        for i in range(len(wu)):
-            x = wu.iloc[i]['content']
-            words.append(x)
-            i = i + 1
-        return words
-    words = getwords()
-    words = pd.DataFrame(words)
-    words = words.rename(columns={0:"original"})
-    st.write(words.head(5), use_column_width='always')
+    # st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
+    # wu = pd.read_json("/Users/JesusLopez-Gomez/Desktop/streamlit_demo/BIG-text-query-tweets.json", lines=True)
+    # words=[]
+    # def getwords():
+    #     i = 0
+    #     for i in range(len(wu)):
+    #         x = wu.iloc[i]['content']
+    #         words.append(x)
+    #         i = i + 1
+    #     return words
+    # words = getwords()
+    # words = pd.DataFrame(words)
+    # words = words.rename(columns={0:"original"})
+    # st.write(words.head(5), use_column_width='always')
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
     if wc:
