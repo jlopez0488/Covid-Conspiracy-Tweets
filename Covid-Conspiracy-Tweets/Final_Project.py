@@ -1,33 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-#import numpy as np
-#import itertools
-# import snscrape.modules.twitter as sntwitter
-# import tensorflow as tf
-# import pandas as pd
-# import numpy as np
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-#from wordcloud import WordCloud, STOPWORDS
-# import nltk
-# import nltk.data
-# import re
-# from nltk.stem import PorterStemmer, WordNetLemmatizer
-# from nltk.corpus import stopwords
-# from nltk.tokenize import word_tokenize, sent_tokenize
-# import gensim
-# from gensim.utils import simple_preprocess
-# from gensim.parsing.preprocessing import STOPWORDS
-# import keras
-# from tensorflow.keras.preprocessing.text import one_hot, Tokenizer
-# from tensorflow.keras.preprocessing.sequence import pad_sequences
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.layers import Dense, Flatten, Embedding, Input, LSTM, Conv1D, MaxPool1D, Bidirectional
-# from tensorflow.keras.models import Model
+
 
 menu = ['Home', 'EDA', 'Model Prediction','Future Work']
-choice = st.sidebar.selectbox('Lets try', menu)
+choice = st.sidebar.selectbox('Where to?', menu)
 
 # Create the Home page
 if choice == 'Home':
@@ -45,17 +22,19 @@ if choice == 'Home':
     
     #second page
 elif choice == "EDA":
-    st.header("Data Collection & EDA")
-    st.title("Getting and cleaning the Tweets")
     
-    st.write("Let's get a look at the Tweets.")
+    st.title("Getting and cleaning the Tweets")
+    st.header("Data Collection & EDA")
+    st.write("Let's get a look at the Tweets. In this section, I'm going to show an abridged version of my EDA process that I completed through Twitter scraping library snscrape.")
     
     st.markdown("---")
-    ##EDA
+
     st.write("Below is a sample of my entire dataset, which contains 17,180 tweets. Let's look at the just the content of the Tweets to do some textual analysis. First, let's look at the content.")
     wu = pd.read_json("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/data/BIG-text-query-tweets.json", lines=True)
+    
     st.write("Let's have a look at the whole thing.")
-    st.write(wu.head(5))
+    wu.head(5)
+    
     st.write("Too much! We need just the content for now.")
     words=[]
     def getwords():
@@ -70,7 +49,6 @@ elif choice == "EDA":
     words = words.rename(columns={0:"original"})
     st.write(words.head(5), use_column_width='always')
     
-    #####
     
     st.write("Let's see what's in this column as a wordcloud.")
     wc = st.button("Show me a WordCloud")
@@ -92,6 +70,9 @@ elif choice == "EDA":
     map = st.button("Show me a map")
     if map:
         st.map(df)
+    
+    st.write("From our EDA, we can see the the Tweetspace describes here is incredibly busy with landmark figures like China and Fauci, an American medical official. The terms 'conspiracy theory' and 'circumstantial' also appear with the cloud, which could be used to publish skeptical tweets of the theory by either individual users or reporters on the hunt.")
+
 
 elif choice == "Model Prediction":
     st.title("Model architecture")
