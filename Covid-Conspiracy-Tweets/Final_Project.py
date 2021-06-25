@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-
-
 menu = ['Home', 'EDA', 'Model Prediction','Future Work']
 choice = st.sidebar.selectbox('Where to?', menu)
 
@@ -77,10 +75,16 @@ elif choice == "EDA":
 elif choice == "Model Prediction":
     st.title("Model architecture")
     st.write("My idea is thus: let's build a fake news detection model to see if any trends emerge. Do the tweets change in factfulness over time? Is there a cluster of true seeming tweets at any point?")
+    
+    st.markdown("---")
+    
     st.write("We're going to use a bidirectional LSTM model to try to assign a factfulness value to these tweets. Let's look at the model architecture first.")
     st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Model.png")
     st.write("Let's take a glance at the training set that is used to train this dataset.")
     st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/Real%20and%20Fake%20news.png")
+
+    st.markdown("**What is LSTM?**")
+    st.write("Recurrent neural networks like LSTM work by learning relationships between data and developing an understanding and a prediction based on what would reasonably happen next. The ability to take sequenced data is an both an advantage to this architecture as well as a liability: over time, the network develops longterm dependencies and struggles with longer sequences, like news articles. LSTM overcomes this by creating a new input: adding a hidden state noting the time where the sequence addition was made. 'Bidirectional' here denotes the two directions of forward and backward in time.")
     
     st.markdown("---")
     
@@ -106,8 +110,12 @@ elif choice == "Model Prediction":
     st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa3.png")
     st.write("The 10th largest topic shows words that seem to indicate skepticism toward the idea. Key words here are: circustantial, evidence and checker.")
     st.image("https://raw.githubusercontent.com/jlopez0488/Covid-Conspiracy-Tweets/master/media/LDAa4.png")
+
+    st.markdown("**What is LDA?**")
+    st.write("LDA (short for Latent Dirichlet Allocation) is an unsupervised machine-learning model that takes documents as input and finds topics as output. The model also says in what percentage each document talks about each topic. -By Félix Revert, DataRobot and Velocity")
 elif choice == "Future Work":
     st.header("How Can This Be Improved?")
     st.markdown("-Further analysis of the late March activity.")
     st.markdown("-Stronger implementation of LDA.")
     st.markdown("-More research in to how machine learning and data analysis have supported fake news-related inquiries like these.")
+    st.markdown("-Create a more interactive, working streamlit app that properly integrates my Python notebook")
